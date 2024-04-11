@@ -39,6 +39,9 @@ run_user_commands() {
 create_user_if_needed
 run_user_commands
 
+# start cron daemon, easy-peasy:
+cron
+
 # Start SSH service
 /usr/sbin/sshd -D
 
