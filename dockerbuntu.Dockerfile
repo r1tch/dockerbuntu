@@ -38,6 +38,8 @@ RUN mkdir /var/run/sshd
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 # we want nice colored prompts :)
 RUN sed -i 's/^#force_color_prompt=yes/force_color_prompt=yes/' /root/.bashrc
+# re-installing all the man pages - as man pages are an essential part of a proper Linux installation
+RUN echo y | unminimize
 
 # Copy the startup script into the image
 COPY dockerbuntu.sh /usr/local/bin/dockerbuntu.sh
